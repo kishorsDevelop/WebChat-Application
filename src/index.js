@@ -21,8 +21,8 @@ io.on('connection',(socket)=>{
                 return callback(error);
             }
             socket.join(user.room);
-            socket.emit('message', generateMessage('Admin','Welcome!'));
-            socket.broadcast.to(user.room).emit('message',generateMessage('Admin',`${user.username} has Joined!`));
+            socket.emit('message', generateMessage('Group','Welcome!'));
+            socket.broadcast.to(user.room).emit('message',generateMessage('Group',`${user.username} has Joined!`));
             io.to(user.room).emit('roomData',{
                 room: user.room,
                 users: getUsersInRoom(user.room)
